@@ -44,8 +44,9 @@ namespace Gensokyo.Controller
         private void Update()
         {
             // TODO: Custom input system
-            _horizontal = Input.GetAxisRaw("Horizontal");
-            _vertical = Input.GetAxisRaw("Vertical");
+            var active = !CameraManager.Instance.Changing;
+            _horizontal = active ? Input.GetAxisRaw("Horizontal") : 0f;
+            _vertical = active ? Input.GetAxisRaw("Vertical") : 0f;
         }
 
         private void FixedUpdate()
