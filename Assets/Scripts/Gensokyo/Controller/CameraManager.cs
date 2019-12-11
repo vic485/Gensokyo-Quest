@@ -33,7 +33,7 @@ namespace Gensokyo.Controller
             
             var speed = Time.fixedDeltaTime * followSpeed;
             var targetPosition = Vector3.Lerp(transform.position, _target.position, speed);
-            transform.position = targetPosition;
+            transform.position = LockToRoom(targetPosition);
         }
 
         private Vector3 LockToRoom(Vector3 targetPos)
